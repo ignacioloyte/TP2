@@ -50,6 +50,7 @@
     <Compile Include="DetalleCompra.cs" />
     <Compile Include="DetalleVenta.cs" />
     <Compile Include="Idiomas.cs" />
+    <Compile Include="LogEntry.cs" />
     <Compile Include="Negocio.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Producto.cs" />

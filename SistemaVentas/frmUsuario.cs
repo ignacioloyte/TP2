@@ -27,6 +27,23 @@ namespace CapaPresentacion
 
         }
 
+        private void CargarGrilla()
+        {
+
+            List<Usuario> listaUsuario = new CN_Usuario().Listar();
+            dgvData.Rows.Clear();
+
+            foreach (Usuario item in listaUsuario)
+            {
+                dgvData.Rows.Add(new object[] { "", item.IdUsuario, item.NUsuario, item.Documento, item.NombreCompleto, item.Email,
+                   "",   "",    item.FechaAlta,    item.FechaBaja,item.oRol.Descripcion,item.oRol.IdRol,item.Estado,item.Estado
+
+
+
+            });
+            }
+        }
+
         private void label8_Click(object sender, EventArgs e)
         {
 
@@ -85,25 +102,29 @@ namespace CapaPresentacion
 
             // Mostrar todos los usuario
 
-            List<Usuario> listaUsuario = new CN_Usuario().Listar();
-
-            foreach (Usuario item in listaUsuario)
-            {
-                dgvData.Rows.Add(new object[] { "", item.IdUsuario, item.NUsuario, item.Documento, item.NombreCompleto, item.Email, item.Clave,
-                item.oRol.IdRol,
-                item.oRol.Descripcion,
-                item.Estado == true ?1 : 0,
-                item.Estado == true ? "Activo" : "No Activo"
-
-
-            });
-            }
-
+            CargarGrilla();
         }
 
         //Boton de Guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            DateTime fechaBajaDefault = new DateTime(2100, 1, 1); // Fecha por defecto
+            DateTime fechaBaja;
+
+            // Verifica si txtFechaBaja.Text es nulo o vacío, y asigna la fecha por defecto en ese caso
+            if (string.IsNullOrEmpty(txtFechaBaja.Text))
+            {
+                fechaBaja = fechaBajaDefault;
+            }
+            else
+            {
+                // Intenta convertir el texto a DateTime, si falla, asigna la fecha por defecto
+                if (!DateTime.TryParse(txtFechaBaja.Text, out fechaBaja))
+                {
+                    fechaBaja = fechaBajaDefault;
+                }
+            }
+
             string mensaje = string.Empty;
             // Crear una instancia de la clase externa que contiene Encriptacion
             Encriptado encriptador = new Encriptado();
@@ -117,7 +138,7 @@ namespace CapaPresentacion
                 Email = txtEmail.Text,
                 Clave = encriptador.Encrypt(txtClave.Text),
                 FechaAlta = dtInicio.Value,
-                FechaBaja = string.IsNullOrEmpty(txtFechaBaja.Text) ? (DateTime?)null : DateTime.ParseExact(txtFechaBaja.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                FechaBaja = fechaBaja,
                 oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cbRol.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cbEstado.SelectedItem).Valor) == 1 ? true : false
             };
@@ -134,22 +155,7 @@ namespace CapaPresentacion
                     CN_Log Log = new CN_Log();
                     Log.LogAction(Convert.ToString(objusuario.IdUsuario), "Se ha creado el usuario", txtId.Text);
 
-
-                    dgvData.Rows.Add(new object[] { "",
-                        txtId.Text,
-                        txtNUsuario.Text,
-                        txtNroDoc.Text,
-                        txtNombreCompleto.Text,
-                        txtEmail.Text,
-                        dtInicio,
-                        txtFechaBaja,
-                        //"********", //Clave encriptada
-                        //"********", //ConfCalave encriptada
-                        ((OpcionCombo)cbRol.SelectedItem).Valor.ToString(),
-                        ((OpcionCombo)cbRol.SelectedItem).Texto.ToString(),
-                        ((OpcionCombo)cbEstado.SelectedItem).Valor.ToString(),
-                        ((OpcionCombo)cbEstado.SelectedItem).Texto.ToString()
-            });
+                    CargarGrilla();
 
                     Limpiar();
                 }
@@ -170,20 +176,7 @@ namespace CapaPresentacion
                     CN_Log Log = new CN_Log();
                     Log.LogAction(Convert.ToString(objusuario.IdUsuario), "Se ha editado el usuario", txtId.Text);
 
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                    row.Cells["Id"].Value = txtId.Text;
-                    row.Cells["NombreUsuario"].Value = txtNUsuario.Text;
-                    row.Cells["Documento"].Value = txtNroDoc.Text;
-                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
-                    row.Cells["Email"].Value = txtEmail.Text;
-                    row.Cells["FechaAlta"].Value = dtInicio.Value;
-                    row.Cells["FechaBaja"].Value = txtFechaBaja.Text;
-                    row.Cells["Clave"].Value = txtClave.Text;
-                    row.Cells["IdRol"].Value = ((OpcionCombo)cbRol.SelectedItem).Valor.ToString();
-                    row.Cells["Rol"].Value = ((OpcionCombo)cbRol.SelectedItem).Texto.ToString();
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbEstado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbEstado.SelectedItem).Texto.ToString();
-
+                    CargarGrilla();
                     Limpiar();
                 }
                 else
@@ -260,8 +253,8 @@ namespace CapaPresentacion
                     txtNroDoc.Text = dgvData.Rows[indice].Cells["Documento"].Value.ToString();
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtEmail.Text = dgvData.Rows[indice].Cells["Email"].Value.ToString();
-                  
-                    txtFechaBaja.Text =  dgvData.Rows[indice].Cells["Clave"].Value.ToString();
+
+                    txtFechaBaja.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
                     txtClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
                     txtConfClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
 
@@ -311,7 +304,7 @@ namespace CapaPresentacion
 
                     if (respuesta)
                     {
-                        dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        CargarGrilla();
                         // Registro Eliminar Usuario
 
                         CN_Log Log = new CN_Log();
@@ -363,6 +356,11 @@ namespace CapaPresentacion
         }
 
         private void txtIndice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

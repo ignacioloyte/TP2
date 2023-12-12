@@ -50,6 +50,19 @@
             btnGuardar = new FontAwesome.Sharp.IconButton();
             btnLimpiarForm = new FontAwesome.Sharp.IconButton();
             dgvData = new DataGridView();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            Id = new DataGridViewTextBoxColumn();
+            NombreUsuario = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            NombreCompleto = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Clave = new DataGridViewTextBoxColumn();
+            IdRol = new DataGridViewTextBoxColumn();
+            FechaAlta = new DataGridViewTextBoxColumn();
+            FechaBAja = new DataGridViewTextBoxColumn();
+            Rol = new DataGridViewTextBoxColumn();
+            EstadoValor = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             lblTituloUsuario = new Label();
             txtId = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -69,19 +82,6 @@
             lblFechaAlta = new Label();
             lblFechaBaja = new Label();
             txtFechaBaja = new TextBox();
-            btnSeleccionar = new DataGridViewButtonColumn();
-            Id = new DataGridViewTextBoxColumn();
-            NombreUsuario = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            NombreCompleto = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Clave = new DataGridViewTextBoxColumn();
-            IdRol = new DataGridViewTextBoxColumn();
-            FechaAlta = new DataGridViewTextBoxColumn();
-            FechaBAja = new DataGridViewTextBoxColumn();
-            Rol = new DataGridViewTextBoxColumn();
-            EstadoValor = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
@@ -94,17 +94,18 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(271, 799);
+            label1.Size = new Size(237, 599);
             label1.TabIndex = 0;
             label1.Text = "label1";
+            label1.Click += label1_Click;
             // 
             // lblNroDoc
             // 
             lblNroDoc.AutoSize = true;
             lblNroDoc.BackColor = Color.White;
-            lblNroDoc.Location = new Point(18, 173);
+            lblNroDoc.Location = new Point(16, 130);
             lblNroDoc.Name = "lblNroDoc";
-            lblNroDoc.Size = new Size(122, 20);
+            lblNroDoc.Size = new Size(99, 15);
             lblNroDoc.TabIndex = 1;
             lblNroDoc.Text = "Nro. Documento:";
             // 
@@ -112,9 +113,9 @@
             // 
             lblEmail.AutoSize = true;
             lblEmail.BackColor = Color.White;
-            lblEmail.Location = new Point(21, 299);
+            lblEmail.Location = new Point(18, 224);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(49, 20);
+            lblEmail.Size = new Size(39, 15);
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email:";
             // 
@@ -122,9 +123,9 @@
             // 
             lblContraseña.AutoSize = true;
             lblContraseña.BackColor = Color.White;
-            lblContraseña.Location = new Point(24, 355);
+            lblContraseña.Location = new Point(21, 266);
             lblContraseña.Name = "lblContraseña";
-            lblContraseña.Size = new Size(86, 20);
+            lblContraseña.Size = new Size(70, 15);
             lblContraseña.TabIndex = 3;
             lblContraseña.Text = "Contraseña:";
             // 
@@ -132,56 +133,61 @@
             // 
             lblNombreUsuario.AutoSize = true;
             lblNombreUsuario.BackColor = Color.White;
-            lblNombreUsuario.Location = new Point(21, 113);
+            lblNombreUsuario.Location = new Point(18, 85);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(140, 20);
+            lblNombreUsuario.Size = new Size(112, 15);
             lblNombreUsuario.TabIndex = 4;
             lblNombreUsuario.Text = "Nombre de usuario:";
             // 
             // txtNroDoc
             // 
-            txtNroDoc.Location = new Point(19, 197);
+            txtNroDoc.Location = new Point(17, 148);
+            txtNroDoc.Margin = new Padding(3, 2, 3, 2);
             txtNroDoc.Name = "txtNroDoc";
-            txtNroDoc.Size = new Size(204, 27);
+            txtNroDoc.Size = new Size(179, 23);
             txtNroDoc.TabIndex = 5;
             // 
             // txtNUsuario
             // 
-            txtNUsuario.Location = new Point(21, 137);
+            txtNUsuario.Location = new Point(18, 103);
+            txtNUsuario.Margin = new Padding(3, 2, 3, 2);
             txtNUsuario.Name = "txtNUsuario";
-            txtNUsuario.Size = new Size(201, 27);
+            txtNUsuario.Size = new Size(176, 23);
             txtNUsuario.TabIndex = 6;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(24, 321);
+            txtEmail.Location = new Point(21, 241);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(201, 27);
+            txtEmail.Size = new Size(176, 23);
             txtEmail.TabIndex = 7;
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(24, 379);
+            txtClave.Location = new Point(21, 284);
+            txtClave.Margin = new Padding(3, 2, 3, 2);
             txtClave.Name = "txtClave";
             txtClave.PasswordChar = '*';
-            txtClave.Size = new Size(201, 27);
+            txtClave.Size = new Size(176, 23);
             txtClave.TabIndex = 8;
             // 
             // txtConfClave
             // 
-            txtConfClave.Location = new Point(26, 437);
+            txtConfClave.Location = new Point(23, 328);
+            txtConfClave.Margin = new Padding(3, 2, 3, 2);
             txtConfClave.Name = "txtConfClave";
             txtConfClave.PasswordChar = '*';
-            txtConfClave.Size = new Size(199, 27);
+            txtConfClave.Size = new Size(175, 23);
             txtConfClave.TabIndex = 12;
             // 
             // lblConfContraseña
             // 
             lblConfContraseña.AutoSize = true;
             lblConfContraseña.BackColor = Color.White;
-            lblConfContraseña.Location = new Point(26, 413);
+            lblConfContraseña.Location = new Point(23, 310);
             lblConfContraseña.Name = "lblConfContraseña";
-            lblConfContraseña.Size = new Size(154, 20);
+            lblConfContraseña.Size = new Size(125, 15);
             lblConfContraseña.TabIndex = 11;
             lblConfContraseña.Text = "Confirmar contraseña:";
             // 
@@ -189,9 +195,9 @@
             // 
             lblRol.AutoSize = true;
             lblRol.BackColor = Color.White;
-            lblRol.Location = new Point(27, 590);
+            lblRol.Location = new Point(24, 442);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(34, 20);
+            lblRol.Size = new Size(27, 15);
             lblRol.TabIndex = 13;
             lblRol.Text = "Rol:";
             // 
@@ -199,27 +205,29 @@
             // 
             cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(29, 612);
+            cbRol.Location = new Point(25, 459);
+            cbRol.Margin = new Padding(3, 2, 3, 2);
             cbRol.Name = "cbRol";
-            cbRol.Size = new Size(196, 28);
+            cbRol.Size = new Size(172, 23);
             cbRol.TabIndex = 14;
             // 
             // cbEstado
             // 
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(31, 672);
+            cbEstado.Location = new Point(27, 504);
+            cbEstado.Margin = new Padding(3, 2, 3, 2);
             cbEstado.Name = "cbEstado";
-            cbEstado.Size = new Size(194, 28);
+            cbEstado.Size = new Size(170, 23);
             cbEstado.TabIndex = 16;
             // 
             // lblEstado
             // 
             lblEstado.AutoSize = true;
             lblEstado.BackColor = Color.White;
-            lblEstado.Location = new Point(31, 648);
+            lblEstado.Location = new Point(27, 486);
             lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(57, 20);
+            lblEstado.Size = new Size(45, 15);
             lblEstado.TabIndex = 15;
             lblEstado.Text = "Estado:";
             lblEstado.Click += label8_Click;
@@ -235,9 +243,10 @@
             btnEliminar.IconColor = Color.White;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 20;
-            btnEliminar.Location = new Point(133, 755);
+            btnEliminar.Location = new Point(116, 566);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(82, 22);
             btnEliminar.TabIndex = 17;
             btnEliminar.Text = "Eliminar";
             btnEliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -255,9 +264,10 @@
             btnGuardar.IconColor = Color.White;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 20;
-            btnGuardar.Location = new Point(31, 720);
+            btnGuardar.Location = new Point(27, 540);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(197, 29);
+            btnGuardar.Size = new Size(172, 22);
             btnGuardar.TabIndex = 18;
             btnGuardar.Text = "Guardar/Editar";
             btnGuardar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -275,9 +285,10 @@
             btnLimpiarForm.IconColor = Color.White;
             btnLimpiarForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiarForm.IconSize = 20;
-            btnLimpiarForm.Location = new Point(33, 755);
+            btnLimpiarForm.Location = new Point(29, 566);
+            btnLimpiarForm.Margin = new Padding(3, 2, 3, 2);
             btnLimpiarForm.Name = "btnLimpiarForm";
-            btnLimpiarForm.Size = new Size(94, 29);
+            btnLimpiarForm.Size = new Size(82, 22);
             btnLimpiarForm.TabIndex = 19;
             btnLimpiarForm.Text = "Limpiar";
             btnLimpiarForm.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -300,7 +311,8 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, NombreUsuario, Documento, NombreCompleto, Email, Clave, IdRol, FechaAlta, FechaBAja, Rol, EstadoValor, Estado });
-            dgvData.Location = new Point(293, 113);
+            dgvData.Location = new Point(256, 85);
+            dgvData.Margin = new Padding(3, 2, 3, 2);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
@@ -314,217 +326,11 @@
             dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowHeadersWidth = 51;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(1205, 674);
+            dgvData.Size = new Size(1054, 506);
             dgvData.TabIndex = 20;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellFormatting += dgvData_CellFormatting;
             dgvData.CellPainting += dgvData_CellPainting;
-            // 
-            // lblTituloUsuario
-            // 
-            lblTituloUsuario.BackColor = Color.White;
-            lblTituloUsuario.BorderStyle = BorderStyle.FixedSingle;
-            lblTituloUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTituloUsuario.Location = new Point(293, 9);
-            lblTituloUsuario.Name = "lblTituloUsuario";
-            lblTituloUsuario.Padding = new Padding(8);
-            lblTituloUsuario.Size = new Size(1205, 101);
-            lblTituloUsuario.TabIndex = 21;
-            lblTituloUsuario.Text = "Lista Usuario:";
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(183, 83);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(41, 27);
-            txtId.TabIndex = 22;
-            txtId.Text = "0";
-            txtId.Visible = false;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // lblBuscar
-            // 
-            lblBuscar.AutoSize = true;
-            lblBuscar.BackColor = Color.White;
-            lblBuscar.Location = new Point(706, 71);
-            lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(82, 20);
-            lblBuscar.TabIndex = 23;
-            lblBuscar.Text = "Buscar por:";
-            // 
-            // cbBusqueda
-            // 
-            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbBusqueda.FormattingEnabled = true;
-            cbBusqueda.Location = new Point(794, 67);
-            cbBusqueda.Name = "cbBusqueda";
-            cbBusqueda.Size = new Size(254, 28);
-            cbBusqueda.TabIndex = 24;
-            // 
-            // txtBusqueda
-            // 
-            txtBusqueda.Location = new Point(1061, 68);
-            txtBusqueda.Name = "txtBusqueda";
-            txtBusqueda.Size = new Size(319, 27);
-            txtBusqueda.TabIndex = 25;
-            // 
-            // btnBusqueda
-            // 
-            btnBusqueda.BackColor = Color.White;
-            btnBusqueda.Cursor = Cursors.Hand;
-            btnBusqueda.FlatAppearance.BorderColor = Color.Black;
-            btnBusqueda.FlatStyle = FlatStyle.Flat;
-            btnBusqueda.ForeColor = Color.White;
-            btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            btnBusqueda.IconColor = Color.Black;
-            btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBusqueda.IconSize = 27;
-            btnBusqueda.Location = new Point(1386, 66);
-            btnBusqueda.Name = "btnBusqueda";
-            btnBusqueda.Size = new Size(49, 29);
-            btnBusqueda.TabIndex = 26;
-            btnBusqueda.UseVisualStyleBackColor = false;
-            btnBusqueda.Click += btnBusqueda_Click;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = Color.White;
-            btnLimpiar.Cursor = Cursors.Hand;
-            btnLimpiar.FlatAppearance.BorderColor = Color.Black;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            btnLimpiar.IconColor = Color.Black;
-            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.IconSize = 27;
-            btnLimpiar.Location = new Point(1442, 66);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(43, 29);
-            btnLimpiar.TabIndex = 27;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            btnLimpiar.Click += btnLimpiar_Click;
-            // 
-            // txtNombreCompleto
-            // 
-            txtNombreCompleto.Location = new Point(22, 259);
-            txtNombreCompleto.Name = "txtNombreCompleto";
-            txtNombreCompleto.Size = new Size(201, 27);
-            txtNombreCompleto.TabIndex = 29;
-            // 
-            // lblNombreCliente
-            // 
-            lblNombreCliente.AutoSize = true;
-            lblNombreCliente.BackColor = Color.White;
-            lblNombreCliente.Location = new Point(18, 235);
-            lblNombreCliente.Name = "lblNombreCliente";
-            lblNombreCliente.Size = new Size(135, 20);
-            lblNombreCliente.TabIndex = 28;
-            lblNombreCliente.Text = "Nombre completo:";
-            // 
-            // iconMenuItem1
-            // 
-            iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuItem1.IconColor = Color.Black;
-            iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem1.Name = "iconMenuItem1";
-            iconMenuItem1.Size = new Size(32, 19);
-            iconMenuItem1.Text = "iconMenuItem1";
-            // 
-            // iconPictureBox1
-            // 
-            iconPictureBox1.BackColor = Color.White;
-            iconPictureBox1.BackgroundImageLayout = ImageLayout.None;
-            iconPictureBox1.Cursor = Cursors.Cross;
-            iconPictureBox1.ForeColor = Color.DarkOrange;
-            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            iconPictureBox1.IconColor = Color.DarkOrange;
-            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 40;
-            iconPictureBox1.Location = new Point(21, 23);
-            iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(40, 40);
-            iconPictureBox1.TabIndex = 30;
-            iconPictureBox1.TabStop = false;
-            // 
-            // lblUsuarios
-            // 
-            lblUsuarios.AutoSize = true;
-            lblUsuarios.BackColor = Color.White;
-            lblUsuarios.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsuarios.Location = new Point(64, 28);
-            lblUsuarios.Name = "lblUsuarios";
-            lblUsuarios.Size = new Size(113, 32);
-            lblUsuarios.TabIndex = 31;
-            lblUsuarios.Text = "Usuarios";
-            // 
-            // txtIndice
-            // 
-            txtIndice.Location = new Point(133, 83);
-            txtIndice.Name = "txtIndice";
-            txtIndice.Size = new Size(41, 27);
-            txtIndice.TabIndex = 33;
-            txtIndice.Text = "-1";
-            txtIndice.Visible = false;
-            txtIndice.TextChanged += txtIndice_TextChanged;
-            // 
-            // btnAyuda
-            // 
-            btnAyuda.BackColor = Color.White;
-            btnAyuda.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btnAyuda.ForeColor = SystemColors.ControlLightLight;
-            btnAyuda.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            btnAyuda.IconColor = Color.DarkOrange;
-            btnAyuda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAyuda.IconSize = 38;
-            btnAyuda.Location = new Point(1442, 22);
-            btnAyuda.Name = "btnAyuda";
-            btnAyuda.Size = new Size(43, 38);
-            btnAyuda.TabIndex = 53;
-            btnAyuda.UseVisualStyleBackColor = false;
-            // 
-            // dtInicio
-            // 
-            dtInicio.CustomFormat = "dd/MM/yyyy";
-            dtInicio.Enabled = false;
-            dtInicio.Format = DateTimePickerFormat.Short;
-            dtInicio.Location = new Point(27, 498);
-            dtInicio.Margin = new Padding(3, 4, 3, 4);
-            dtInicio.Name = "dtInicio";
-            dtInicio.Size = new Size(201, 27);
-            dtInicio.TabIndex = 54;
-            dtInicio.Value = new DateTime(2023, 12, 12, 8, 45, 38, 0);
-            // 
-            // lblFechaAlta
-            // 
-            lblFechaAlta.AutoSize = true;
-            lblFechaAlta.BackColor = Color.White;
-            lblFechaAlta.Location = new Point(27, 474);
-            lblFechaAlta.Name = "lblFechaAlta";
-            lblFechaAlta.Size = new Size(81, 20);
-            lblFechaAlta.TabIndex = 55;
-            lblFechaAlta.Text = "Fecha Alta:";
-            // 
-            // lblFechaBaja
-            // 
-            lblFechaBaja.AutoSize = true;
-            lblFechaBaja.BackColor = Color.White;
-            lblFechaBaja.Location = new Point(29, 535);
-            lblFechaBaja.Name = "lblFechaBaja";
-            lblFechaBaja.Size = new Size(83, 20);
-            lblFechaBaja.TabIndex = 57;
-            lblFechaBaja.Text = "Fecha Baja:";
-            // 
-            // txtFechaBaja
-            // 
-            txtFechaBaja.Location = new Point(29, 558);
-            txtFechaBaja.Name = "txtFechaBaja";
-            txtFechaBaja.Size = new Size(199, 27);
-            txtFechaBaja.TabIndex = 58;
             // 
             // btnSeleccionar
             // 
@@ -635,12 +441,227 @@
             Estado.ReadOnly = true;
             Estado.Width = 125;
             // 
+            // lblTituloUsuario
+            // 
+            lblTituloUsuario.BackColor = Color.White;
+            lblTituloUsuario.BorderStyle = BorderStyle.FixedSingle;
+            lblTituloUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTituloUsuario.Location = new Point(256, 7);
+            lblTituloUsuario.Name = "lblTituloUsuario";
+            lblTituloUsuario.Padding = new Padding(7, 6, 7, 6);
+            lblTituloUsuario.Size = new Size(1055, 76);
+            lblTituloUsuario.TabIndex = 21;
+            lblTituloUsuario.Text = "Lista Usuario:";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(160, 62);
+            txtId.Margin = new Padding(3, 2, 3, 2);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(36, 23);
+            txtId.TabIndex = 22;
+            txtId.Text = "0";
+            txtId.Visible = false;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.BackColor = Color.White;
+            lblBuscar.Location = new Point(618, 53);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(66, 15);
+            lblBuscar.TabIndex = 23;
+            lblBuscar.Text = "Buscar por:";
+            // 
+            // cbBusqueda
+            // 
+            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBusqueda.FormattingEnabled = true;
+            cbBusqueda.Location = new Point(695, 50);
+            cbBusqueda.Margin = new Padding(3, 2, 3, 2);
+            cbBusqueda.Name = "cbBusqueda";
+            cbBusqueda.Size = new Size(223, 23);
+            cbBusqueda.TabIndex = 24;
+            // 
+            // txtBusqueda
+            // 
+            txtBusqueda.Location = new Point(928, 51);
+            txtBusqueda.Margin = new Padding(3, 2, 3, 2);
+            txtBusqueda.Name = "txtBusqueda";
+            txtBusqueda.Size = new Size(280, 23);
+            txtBusqueda.TabIndex = 25;
+            // 
+            // btnBusqueda
+            // 
+            btnBusqueda.BackColor = Color.White;
+            btnBusqueda.Cursor = Cursors.Hand;
+            btnBusqueda.FlatAppearance.BorderColor = Color.Black;
+            btnBusqueda.FlatStyle = FlatStyle.Flat;
+            btnBusqueda.ForeColor = Color.White;
+            btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            btnBusqueda.IconColor = Color.Black;
+            btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBusqueda.IconSize = 27;
+            btnBusqueda.Location = new Point(1213, 50);
+            btnBusqueda.Margin = new Padding(3, 2, 3, 2);
+            btnBusqueda.Name = "btnBusqueda";
+            btnBusqueda.Size = new Size(43, 22);
+            btnBusqueda.TabIndex = 26;
+            btnBusqueda.UseVisualStyleBackColor = false;
+            btnBusqueda.Click += btnBusqueda_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = Color.White;
+            btnLimpiar.Cursor = Cursors.Hand;
+            btnLimpiar.FlatAppearance.BorderColor = Color.Black;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            btnLimpiar.IconColor = Color.Black;
+            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiar.IconSize = 27;
+            btnLimpiar.Location = new Point(1262, 50);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(38, 22);
+            btnLimpiar.TabIndex = 27;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // txtNombreCompleto
+            // 
+            txtNombreCompleto.Location = new Point(19, 194);
+            txtNombreCompleto.Margin = new Padding(3, 2, 3, 2);
+            txtNombreCompleto.Name = "txtNombreCompleto";
+            txtNombreCompleto.Size = new Size(176, 23);
+            txtNombreCompleto.TabIndex = 29;
+            // 
+            // lblNombreCliente
+            // 
+            lblNombreCliente.AutoSize = true;
+            lblNombreCliente.BackColor = Color.White;
+            lblNombreCliente.Location = new Point(16, 176);
+            lblNombreCliente.Name = "lblNombreCliente";
+            lblNombreCliente.Size = new Size(108, 15);
+            lblNombreCliente.TabIndex = 28;
+            lblNombreCliente.Text = "Nombre completo:";
+            // 
+            // iconMenuItem1
+            // 
+            iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconMenuItem1.IconColor = Color.Black;
+            iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuItem1.Name = "iconMenuItem1";
+            iconMenuItem1.Size = new Size(32, 19);
+            iconMenuItem1.Text = "iconMenuItem1";
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.White;
+            iconPictureBox1.BackgroundImageLayout = ImageLayout.None;
+            iconPictureBox1.Cursor = Cursors.Cross;
+            iconPictureBox1.ForeColor = Color.DarkOrange;
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Users;
+            iconPictureBox1.IconColor = Color.DarkOrange;
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 30;
+            iconPictureBox1.Location = new Point(18, 17);
+            iconPictureBox1.Margin = new Padding(3, 2, 3, 2);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(35, 30);
+            iconPictureBox1.TabIndex = 30;
+            iconPictureBox1.TabStop = false;
+            // 
+            // lblUsuarios
+            // 
+            lblUsuarios.AutoSize = true;
+            lblUsuarios.BackColor = Color.White;
+            lblUsuarios.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUsuarios.Location = new Point(56, 21);
+            lblUsuarios.Name = "lblUsuarios";
+            lblUsuarios.Size = new Size(89, 25);
+            lblUsuarios.TabIndex = 31;
+            lblUsuarios.Text = "Usuarios";
+            // 
+            // txtIndice
+            // 
+            txtIndice.Location = new Point(116, 62);
+            txtIndice.Margin = new Padding(3, 2, 3, 2);
+            txtIndice.Name = "txtIndice";
+            txtIndice.Size = new Size(36, 23);
+            txtIndice.TabIndex = 33;
+            txtIndice.Text = "-1";
+            txtIndice.Visible = false;
+            txtIndice.TextChanged += txtIndice_TextChanged;
+            // 
+            // btnAyuda
+            // 
+            btnAyuda.BackColor = Color.White;
+            btnAyuda.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            btnAyuda.ForeColor = SystemColors.ControlLightLight;
+            btnAyuda.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            btnAyuda.IconColor = Color.DarkOrange;
+            btnAyuda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAyuda.IconSize = 38;
+            btnAyuda.Location = new Point(1262, 16);
+            btnAyuda.Margin = new Padding(3, 2, 3, 2);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(38, 28);
+            btnAyuda.TabIndex = 53;
+            btnAyuda.UseVisualStyleBackColor = false;
+            // 
+            // dtInicio
+            // 
+            dtInicio.CustomFormat = "dd/MM/yyyy";
+            dtInicio.Enabled = false;
+            dtInicio.Format = DateTimePickerFormat.Short;
+            dtInicio.Location = new Point(24, 374);
+            dtInicio.Name = "dtInicio";
+            dtInicio.Size = new Size(176, 23);
+            dtInicio.TabIndex = 54;
+            dtInicio.Value = new DateTime(2023, 12, 12, 8, 45, 38, 0);
+            // 
+            // lblFechaAlta
+            // 
+            lblFechaAlta.AutoSize = true;
+            lblFechaAlta.BackColor = Color.White;
+            lblFechaAlta.Location = new Point(24, 356);
+            lblFechaAlta.Name = "lblFechaAlta";
+            lblFechaAlta.Size = new Size(65, 15);
+            lblFechaAlta.TabIndex = 55;
+            lblFechaAlta.Text = "Fecha Alta:";
+            // 
+            // lblFechaBaja
+            // 
+            lblFechaBaja.AutoSize = true;
+            lblFechaBaja.BackColor = Color.White;
+            lblFechaBaja.Location = new Point(25, 401);
+            lblFechaBaja.Name = "lblFechaBaja";
+            lblFechaBaja.Size = new Size(66, 15);
+            lblFechaBaja.TabIndex = 57;
+            lblFechaBaja.Text = "Fecha Baja:";
+            // 
+            // txtFechaBaja
+            // 
+            txtFechaBaja.Location = new Point(25, 418);
+            txtFechaBaja.Margin = new Padding(3, 2, 3, 2);
+            txtFechaBaja.Name = "txtFechaBaja";
+            txtFechaBaja.Size = new Size(175, 23);
+            txtFechaBaja.TabIndex = 58;
+            // 
             // frmUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(1570, 799);
+            ClientSize = new Size(1374, 599);
             Controls.Add(txtFechaBaja);
             Controls.Add(lblFechaBaja);
             Controls.Add(lblFechaAlta);
@@ -677,6 +698,7 @@
             Controls.Add(lblEmail);
             Controls.Add(lblNroDoc);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmUsuario";
             Text = "frmUsuario";
             Load += frmUsuario_Load;

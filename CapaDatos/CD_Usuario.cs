@@ -50,9 +50,10 @@ namespace CapaDatos
                                 NombreCompleto = dr["NombreCompleto"].ToString(),
                                 Email = dr["Email"] != DBNull.Value ? dr["Email"].ToString() : null,
                                 FechaAlta = Convert.ToDateTime(dr["FechaAlta"]),
-                                FechaBaja = dr["FechaBaja"] != DBNull.Value ? Convert.ToDateTime(dr["FechaBaja"]) : (DateTime?)null,
+                                FechaBaja = dr["FechaBaja"] != DBNull.Value ? Convert.ToDateTime(dr["FechaBaja"]) : new DateTime(2100, 1, 1),
                                 Clave = dr["Clave"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"]),
+                                rol = dr["Descripcion"].ToString(),
                                 oRol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion  = dr["Descripcion"].ToString() }
                             
                             });
@@ -88,7 +89,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("FechaAlta", obj.FechaAlta);
-                    cmd.Parameters.AddWithValue("FechaBaja", obj.FechaBaja);
+                    cmd.Parameters.AddWithValue("FechaBaja", obj.FechaAlta);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
@@ -137,7 +138,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("FechaAlta", obj.FechaAlta);
-                    cmd.Parameters.AddWithValue("FechaBaja", obj.FechaBaja);
+                    cmd.Parameters.AddWithValue("FechaBaja", obj.FechaAlta);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);

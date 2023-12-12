@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="frmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmBackUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDetalleCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\mdAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\mdCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\mdProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\mdProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
