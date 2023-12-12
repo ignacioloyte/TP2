@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaEntidad
+{
+    public class DetalleVenta
+    {
+        public Producto oProducto;
+        public int IdDetalleVenta { get; set; }
+        public int IdVenta { get; set; }
+        public int IdProducto { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public int Cantidad { get; set; }
+        public decimal SubTotal { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public Usuario oUsuario { get; set; }
+
+    }
+}

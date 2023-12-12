@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnIngresar" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="btnSeleccionarIdioma" xml:space="preserve">
+    <value>Seleccione</value>
+  </data>
+  <data name="lblContraseña" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="lblIdioma" xml:space="preserve">
+    <value>Linguagem</value>
+  </data>
+  <data name="lbltitulo" xml:space="preserve">
+    <value>Login do sistema</value>
+  </data>
+  <data name="lbltitulo2" xml:space="preserve">
+    <value>de vendas</value>
+  </data>
+  <data name="lblUsuario" xml:space="preserve">
+    <value>do utilizador</value>
+  </data>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
+  <data name="Ventas" xml:space="preserve">
+    <value>Ofertas</value>
+  </data>
+  <data name="Compras" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="Clientes" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="Proveedores" xml:space="preserve">
+    <value>Fornecedores</value>
+  </data>
+  <data name="Reportes" xml:space="preserve">
+    <value>Relatórios</value>
+  </data>
+  <data name="Mantenedor" xml:space="preserve">
+    <value>Mantenedor</value>
+  </data>
+  <data name="Acerca De" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Estoque</value>
+  </data>
+  <data name="btnRegistrarVenta" xml:space="preserve">
+    <value>Cadastrar Venda</value>
+  </data>
+  <data name="btnVerDetalleVenta" xml:space="preserve">
+    <value>Ver detalhe</value>
+  </data>
+  <data name="btnRegistrarCompra" xml:space="preserve">
+    <value>Cadastrar Compra</value>
+  </data>
+  <data name="btnVerDetalle" xml:space="preserve">
+    <value>Ver detahe Compra</value>
+  </data>
+  <data name="SubMenuReporteCompras" xml:space="preserve">
+    <value>Relatorio Compra</value>
+  </data>
+  <data name="SubMenuReporteVentas" xml:space="preserve">
+    <value>Relatorio Venda</value>
+  </data>
+  <data name="btnCategoria" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="btnProductos" xml:space="preserve">
+    <value>Produtos</value>
+  </data>
+  <data name="btnNegocio" xml:space="preserve">
+    <value>Negócios</value>
+  </data>
+  <data name="txtNUsuario" xml:space="preserve">
+    <value>Do Utilizador:</value>
+  </data>
+  <data name="lblRegistrar" xml:space="preserve">
+    <value>Cadastrar Venda</value>
+  </data>
+  <data name="gbInfo" xml:space="preserve">
+    <value>Informações de venda</value>
+  </data>
+  <data name="lblFecha" xml:space="preserve">
+    <value>Data:</value>
+  </data>
+  <data name="lblDoc" xml:space="preserve">
+    <value>Tipo Documento:</value>
+  </data>
+  <data name="gbInfoCliente" xml:space="preserve">
+    <value>Informação ao Cliente</value>
+  </data>
+  <data name="lblNroDoc" xml:space="preserve">
+    <value>Número do documento:</value>
+  </data>
+  <data name="lblNombreCliente" xml:space="preserve">
+    <value>Nome completo:</value>
+  </data>
+  <data name="gbInfoProducto" xml:space="preserve">
+    <value>Informação do produto</value>
+  </data>
+  <data name="lblCodProducto" xml:space="preserve">
+    <value>Código do produto:</value>
+  </data>
+  <data name="lblProducto" xml:space="preserve">
+    <value>Produtos</value>
+  </data>
+  <data name="lblPrecio" xml:space="preserve">
+    <value>Preço</value>
+  </data>
+  <data name="lblStock" xml:space="preserve">
+    <value>Estoque</value>
+  </data>
+  <data name="lblCantidad" xml:space="preserve">
+    <value>Quantia</value>
+  </data>
+  <data name="btnAgregar" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="lblTotalPagar" xml:space="preserve">
+    <value>Total a pagar</value>
+  </data>
+  <data name="lblPagaCon" xml:space="preserve">
+    <value>Pagar com</value>
+  </data>
+  <data name="lblCambio" xml:space="preserve">
+    <value>Mudar</value>
+  </data>
+  <data name="btnCrearVenta" xml:space="preserve">
+    <value>Criar Venda</value>
+  </data>
+  <data name="btnBackup" xml:space="preserve">
+    <value>Resguardo</value>
+  </data>
+  <data name="lblNombreUsuario" xml:space="preserve">
+    <value>Do Utilizador:</value>
+  </data>
+  <data name="lblEmail" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="lblConfContraseña" xml:space="preserve">
+    <value>Confirmar senha:</value>
+  </data>
+  <data name="lblRol" xml:space="preserve">
+    <value>Papel:</value>
+  </data>
+  <data name="lblEstado" xml:space="preserve">
+    <value>Estado:</value>
+  </data>
+  <data name="btnGuardar" xml:space="preserve">
+    <value>Salvar/Editar</value>
+  </data>
+  <data name="btnLimpiarForm" xml:space="preserve">
+    <value>Limpar</value>
+  </data>
+  <data name="btnEliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="lblTituloUsuario" xml:space="preserve">
+    <value>Lista de usuários:</value>
+  </data>
+  <data name="lblBuscar" xml:space="preserve">
+    <value>Procurar:</value>
+  </data>
+  <data name="lblUsuarios" xml:space="preserve">
+    <value>Do Utilizador</value>
+  </data>
+  <data name="lblRegistrarVenta" xml:space="preserve">
+    <value>Cadastrar Venda</value>
+  </data>
+  <data name="lblFechaInicio" xml:space="preserve">
+    <value>Data de início</value>
+  </data>
+  <data name="lblFechaFin" xml:space="preserve">
+    <value>Data Final</value>
+  </data>
+  <data name="btnBuscarS" xml:space="preserve">
+    <value>Procurar</value>
+  </data>
+  <data name="btnExcel" xml:space="preserve">
+    <value>Baixar Excel</value>
+  </data>
+  <data name="lblReporteCompra" xml:space="preserve">
+    <value>Cadastrar Compra</value>
+  </data>
+  <data name="lblProveedor" xml:space="preserve">
+    <value>Fornecedor</value>
+  </data>
+  <data name="lblRazonSocial" xml:space="preserve">
+    <value>Razão social</value>
+  </data>
+  <data name="lblTelefono" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="lblListaProveedores" xml:space="preserve">
+    <value>Lista de Fornecedores</value>
+  </data>
+  <data name="lblDetalleCompra" xml:space="preserve">
+    <value>Detalhes da compra</value>
+  </data>
+  <data name="gboInfoCompra" xml:space="preserve">
+    <value>Detalhes da Compra</value>
+  </data>
+  <data name="gbInfoProveedor" xml:space="preserve">
+    <value>Detalhes Fornecedor</value>
+  </data>
+  <data name="lblMontoTotal" xml:space="preserve">
+    <value>Montante Total</value>
+  </data>
+  <data name="btnDescargarPdf" xml:space="preserve">
+    <value>Baixar Pdf</value>
+  </data>
+  <data name="lblDetalleVenta" xml:space="preserve">
+    <value>Detalhes da Venda</value>
+  </data>
+  <data name="lblMontoPago" xml:space="preserve">
+    <value>Valor do pagamento</value>
+  </data>
+  <data name="lblMontoCambio" xml:space="preserve">
+    <value>Valor do Mudar</value>
+  </data>
+  <data name="lblPrecioCompra" xml:space="preserve">
+    <value>Preço Compra</value>
+  </data>
+  <data name="btnRegistrar" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="lblPrecioVenta" xml:space="preserve">
+    <value>Preço de venda</value>
+  </data>
+  <data name="gbInfoCompra" xml:space="preserve">
+    <value>informações de compra</value>
+  </data>
+  <data name="lblClientes" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="lblListaClientes" xml:space="preserve">
+    <value>Lista de Clientes:</value>
+  </data>
+  <data name="lblProductos" xml:space="preserve">
+    <value>Produtos</value>
+  </data>
+  <data name="lblCodigo" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="lblNombre" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="lblDescripcion" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="lblDetalle2" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="lblCategoria" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="lblListaCategorias" xml:space="preserve">
+    <value>Categoria Listas:</value>
+  </data>
+  <data name="lblLogo" xml:space="preserve">
+    <value>Logotipo</value>
+  </data>
+  <data name="lblListaProducto" xml:space="preserve">
+    <value>Lista de Produtos:</value>
+  </data>
+  <data name="lblNombreNegocio" xml:space="preserve">
+    <value>Nome Empresa</value>
+  </data>
+  <data name="lblCuit" xml:space="preserve">
+    <value>CUIT:</value>
+  </data>
+  <data name="lblDireccion" xml:space="preserve">
+    <value>Endereço:</value>
+  </data>
+</root>
