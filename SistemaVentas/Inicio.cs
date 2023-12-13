@@ -221,9 +221,10 @@ namespace SistemaVentas
         }
 
         private void btnBackup_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(MenuMantenedor, new frmBackUp());
+        { 
+            AbrirFormulario(MenuConfiguracion, new frmBackUp());
         }
+    
 
         private void iconMenuItem1_Click(object sender, EventArgs e)
         {
