@@ -63,13 +63,18 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+        
+
+
+
             List<Usuario> TEST = new CN_Usuario().Listar();
             /* Llamamos el metodo listar. Utilizamos expresiones landas para poder retornar 
              * la busqueda de un usuario en nuestra lista
             */
-            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.NUsuario == txtUsuario.Text &&
-                u.Clave == txtClave.Text).FirstOrDefault();
 
+
+            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.NUsuario == txtUsuario.Text &&
+                   Encriptado.ValidatePassword(txtClave.Text, u.Clave) == true).FirstOrDefault();
             /* Aca realizamos el check para validar si existe el usuario, si existe en la bd sigue,
              * de lo contrario lanza un mensaje
              * */

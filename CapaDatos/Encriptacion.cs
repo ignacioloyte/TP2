@@ -7,48 +7,69 @@ using System.Security.Cryptography;
 
 namespace CapaDatos
 {
-   public class Encriptado
+    public static class Encriptado
+    { 
+    public static string HashPassword(string password)
     {
-       
-        
-            //MEtodo Encriptacion
-            public string Encrypt(string mensaje)
+        // Generar una sal aleatoria
+        byte[] salt;
+        new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+        // Crear el hash de la contraseña
+        var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+        byte[] hash = pbkdf2.GetBytes(20);
+
+        // Combinar la sal y el hash
+        byte[] hashBytes = new byte[36];
+        Array.Copy(salt, 0, hashBytes, 0, 16);
+        Array.Copy(hash, 0, hashBytes, 16, 20);
+
+        // Convertir a string base64
+        string hashedPassword = Convert.ToBase64String(hashBytes);
+
+        return hashedPassword;
+    }
+
+        public static bool ValidatePassword(string enteredPassword, string storedHash)
+        {
+
+            byte[] hashBytes;
+            try
             {
-                string perro = "coding con c";
-                byte[] data = UTF8Encoding.UTF8.GetBytes(mensaje);
-
-                MD5 md5 = MD5.Create();
-                TripleDES tripldes = TripleDES.Create();
-
-                tripldes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(perro));
-                tripldes.Mode = CipherMode.CBC;
-
-                ICryptoTransform transform = tripldes.CreateEncryptor();
-                byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
-
-                return Convert.ToBase64String(result);
+                hashBytes = Convert.FromBase64String(storedHash);
+            }
+            catch
+            {
+                // Manejar el caso donde storedHash no está en formato Base64 válido
+                return false;
             }
 
-            //Medoto desencriptacion
-
-            public string Decrypt(string mensajeEn)
+            // Verificar si el tamaño del hash es el esperado
+            if (hashBytes.Length != 36)
             {
-                string perro = "coding con c";
-                byte[] data = Convert.FromBase64String(mensajeEn);
-
-                MD5 md5 = MD5.Create();
-                TripleDES tripldes = TripleDES.Create();
-
-                tripldes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(perro));
-                tripldes.Mode = CipherMode.CBC;
-
-                ICryptoTransform transform = tripldes.CreateDecryptor();
-                byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
-
-                return UTF8Encoding.UTF8.GetString(result);
-
+                // El hash no tiene el formato o tamaño esperado
+                return false;
             }
+   // El bloque anterior fue generado para que si ingresan una contraseña manualmente por BD no arroje una excepción sin ser manejada
+
+            // Extraer la sal del hash
+            byte[] salt = new byte[16];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+
+            // Computar el hash en la contraseña ingresada
+            var pbkdf2 = new Rfc2898DeriveBytes(enteredPassword, salt, 10000);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            // Comparar los resultados
+            for (int i = 0; i < 20; i++)
+            {
+                if (hashBytes[i + 16] != hash[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
-    
-    
+    }
 }

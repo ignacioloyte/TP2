@@ -17,7 +17,7 @@ namespace CapaNegocio
         public void LogAction(string user, string action, string details)
         {
 
-            logData = new LogData(Conexion.cadena);
+            logData = new LogData();
             LogEntry logEntry = new LogEntry
             {
                 Timestamp = DateTime.Now,
@@ -27,6 +27,13 @@ namespace CapaNegocio
             };
 
             logData.InsertLog(logEntry);
+        }
+
+        private LogData dal = new LogData();
+
+        public List<LogEntry> GetAllLogEntries()
+        {
+            return dal.GetLogEntries();
         }
     }
 }

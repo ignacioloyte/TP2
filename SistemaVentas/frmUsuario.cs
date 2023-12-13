@@ -15,6 +15,7 @@ using CapaPresentacion.Idioma;
 using CapaPresentacion.Modales;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Globalization;
+using SistemaVentas;
 
 namespace CapaPresentacion
 {
@@ -36,7 +37,8 @@ namespace CapaPresentacion
             foreach (Usuario item in listaUsuario)
             {
                 dgvData.Rows.Add(new object[] { "", item.IdUsuario, item.NUsuario, item.Documento, item.NombreCompleto, item.Email,
-                   "",   "",    item.FechaAlta,    item.FechaBaja,item.oRol.Descripcion,item.oRol.IdRol,item.Estado,item.Estado
+                   "",   item.oRol.IdRol,    item.FechaAlta,    item.FechaBaja,item.oRol.Descripcion, item.Estado,item.Estado ? "Activo" : "No Activo"  // Aquí se hace la conversión
+ 
 
 
 
@@ -126,8 +128,7 @@ namespace CapaPresentacion
             }
 
             string mensaje = string.Empty;
-            // Crear una instancia de la clase externa que contiene Encriptacion
-            Encriptado encriptador = new Encriptado();
+       
 
             Usuario objusuario = new Usuario()
             {
@@ -136,7 +137,7 @@ namespace CapaPresentacion
                 Documento = txtNroDoc.Text,
                 NombreCompleto = txtNombreCompleto.Text,
                 Email = txtEmail.Text,
-                Clave = encriptador.Encrypt(txtClave.Text),
+                Clave = Encriptado.HashPassword(txtClave.Text),
                 FechaAlta = dtInicio.Value,
                 FechaBaja = fechaBaja,
                 oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cbRol.SelectedItem).Valor) },
@@ -153,7 +154,7 @@ namespace CapaPresentacion
                     // Registro Crear Usuario
 
                     CN_Log Log = new CN_Log();
-                    Log.LogAction(Convert.ToString(objusuario.IdUsuario), "Se ha creado el usuario", txtId.Text);
+                    Log.LogAction(Convert.ToString(Inicio.usuarioActual.IdUsuario), "Se ha creado el usuario",Convert.ToString( idusuariogenerado));
 
                     CargarGrilla();
 
@@ -174,7 +175,7 @@ namespace CapaPresentacion
                     // Registro Editar Usuario
 
                     CN_Log Log = new CN_Log();
-                    Log.LogAction(Convert.ToString(objusuario.IdUsuario), "Se ha editado el usuario", txtId.Text);
+                    Log.LogAction(Convert.ToString(Inicio.usuarioActual.IdUsuario), "Se ha editado el usuario", txtId.Text);
 
                     CargarGrilla();
                     Limpiar();
@@ -258,18 +259,22 @@ namespace CapaPresentacion
                     txtClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
                     txtConfClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
 
-                    //Para modificar al combo correspondiente
 
-                    foreach (OpcionCombo oc in cbRol.Items)
+                    // Obtén el valor de IdRol de la fila seleccionada
+                    var idRol = dgvData.Rows[e.RowIndex].Cells["IdRol"].Value.ToString();
+
+                    // Busca este valor en los ítems del cbRol
+                    foreach (var item in cbRol.Items)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["IdRol"].Value))
+                        OpcionCombo opc = item as OpcionCombo;
+                        if (opc != null && opc.Valor.ToString() == idRol)
                         {
-                            int indice_combo = cbRol.Items.IndexOf(oc);
-                            cbRol.SelectedIndex = indice_combo;
+                            // Si encuentras una coincidencia, selecciona este ítem en el ComboBox
+                            cbRol.SelectedItem = item;
                             break;
-
                         }
                     }
+                 
 
                     foreach (OpcionCombo oc in cbEstado.Items)
                     {
@@ -308,7 +313,7 @@ namespace CapaPresentacion
                         // Registro Eliminar Usuario
 
                         CN_Log Log = new CN_Log();
-                        Log.LogAction(Convert.ToString(objusuario.IdUsuario), "Se ha eliminado el usuario", txtId.Text);
+                        Log.LogAction(Convert.ToString(Inicio.usuarioActual.IdUsuario), "Se ha eliminado el usuario", txtId.Text);
 
                         Limpiar();
                     }
@@ -361,6 +366,11 @@ namespace CapaPresentacion
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRol_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

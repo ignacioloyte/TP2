@@ -69,3 +69,4 @@ C:\Users\Ignacio\Source\Repos\TP2\SistemaVentas\obj\Debug\net6.0-windows\refint\
 C:\Users\Ignacio\Source\Repos\TP2\SistemaVentas\obj\Debug\net6.0-windows\SistemaVentasFerreNeyte.pdb
 C:\Users\Ignacio\Source\Repos\TP2\SistemaVentas\obj\Debug\net6.0-windows\CapaPresentacion.genruntimeconfig.cache
 C:\Users\Ignacio\Source\Repos\TP2\SistemaVentas\obj\Debug\net6.0-windows\ref\SistemaVentasFerreNeyte.dll
+C:\Users\Ignacio\Source\Repos\TP2\SistemaVentas\obj\Debug\net6.0-windows\CapaPresentacion.frmBitacora.resources

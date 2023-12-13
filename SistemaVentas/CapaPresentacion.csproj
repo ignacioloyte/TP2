@@ -30,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="frmBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Idioma\Textos.Designer.cs">
       <DependentUpon>Textos.resx</DependentUpon>
       <DesignTime>True</DesignTime>

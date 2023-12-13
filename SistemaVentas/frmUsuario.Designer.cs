@@ -210,6 +210,7 @@
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(172, 23);
             cbRol.TabIndex = 14;
+            cbRol.SelectedIndexChanged += cbRol_SelectedIndexChanged;
             // 
             // cbEstado
             // 

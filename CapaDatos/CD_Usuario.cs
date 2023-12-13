@@ -26,7 +26,7 @@ namespace CapaDatos
                 {
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select u.IdUsuario, u.NUsuario, u.NroDocumento, u.NombreCompleto, u.Email, u.FechaAlta, u.FechaBaja, u.Clave, u.Estado, r.IdRol, r.Descripcion ");
+                    query.AppendLine("select u.IdUsuario, u.NUsuario, u.NroDocumento, u.NombreCompleto, u.Email, u.FechaAlta, u.FechaBaja, u.Clave, r.IdRol, r.Descripcion,u.estado ");
                     query.AppendLine("from Usuario u inner join rol r on r.IdRol = u.IdRol");
                         
                         

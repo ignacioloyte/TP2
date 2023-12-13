@@ -15,7 +15,7 @@ namespace CapaDatos
     {
         private string connectionString;
 
-        public LogData(string connectionString)
+        public LogData()
         {
             this.connectionString = Conexion.cadena;
         }
@@ -37,6 +37,36 @@ namespace CapaDatos
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+
+        public List<LogEntry> GetLogEntries()
+        {
+            var entries = new List<LogEntry>();
+            string query = "SELECT Id, Timestamp, [User], Action, Details FROM LogEntries";
+
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var entry = new LogEntry
+                        {
+                            Id = (int)reader["Id"],
+                            Timestamp = (DateTime)reader["Timestamp"],
+                            User = reader["User"].ToString(),
+                            Action = reader["Action"].ToString(),
+                            Details = reader["Details"].ToString()
+                        };
+                        entries.Add(entry);
+                    }
+                }
+            }
+            return entries;
         }
     }
 

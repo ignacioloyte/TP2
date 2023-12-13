@@ -24,7 +24,7 @@ namespace SistemaVentas
     {
         //Seteamos una variable usuario a la cual le vamos a asignar el usuario, actua como una variable
         // global de todo lo que tengo en Formulario inicio
-        private static Usuario usuarioActual;
+        public static Usuario usuarioActual;
 
         //Almacena el menu activo
         private static IconMenuItem MenuActivo = null;
@@ -223,6 +223,16 @@ namespace SistemaVentas
         private void btnBackup_Click(object sender, EventArgs e)
         {
             AbrirFormulario(MenuMantenedor, new frmBackUp());
+        }
+
+        private void iconMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuBitacora, new frmBitacora());
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
         }
 
 
