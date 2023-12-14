@@ -328,7 +328,7 @@ namespace CapaDatos
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
             {
                 conexion.Open();
-                string consulta = "UPDATE Usuario SET intento = 0 WHERE Id = @usuarioId";
+                string consulta = "UPDATE Usuario SET intentos = 0 WHERE IdUsuario = @usuarioId";
 
                 using (SqlCommand comando = new SqlCommand(consulta, conexion))
                 {

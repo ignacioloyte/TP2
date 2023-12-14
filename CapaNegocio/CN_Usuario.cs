@@ -137,6 +137,7 @@ namespace CapaNegocio
             {
                 case CD_Usuario.ResultadoVerificacion.CredencialesCorrectas:
                     // Lógica adicional...
+                    ReiniciarIntentosFallidos(nombreUsuario);
                     return true;
 
                 case CD_Usuario.ResultadoVerificacion.UsuarioNoExiste:
@@ -166,6 +167,15 @@ namespace CapaNegocio
         if (usuarioId > 0)
         {
             objcd_usuario.IncrementarIntentosFallidos(usuarioId);
+        }
+    }
+
+        public void ReiniciarIntentosFallidos(string nombreUsuario)
+    {
+        int usuarioId = objcd_usuario.ObtenerIdUsuario(nombreUsuario);
+        if (usuarioId > 0)
+        {
+                objcd_usuario.ReiniciarIntentosFallidos(usuarioId);
         }
     }
      
