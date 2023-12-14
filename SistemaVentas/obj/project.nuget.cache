@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UgTSP387nPPoynjB2vuAYWB/J585vtM9cTCJbTs69zhkOb2mQfCOc73iGqdHsTQxMDWRkEzKw4eq/8APHZmXGw==",
+  "dgSpecHash": "gFE9Rkep6Si/jh6LqUbuNn00srZ+1XydYLBcr0qaABgNY/u00QwyIm5YepSQQgxX1ckiuiqiyS+ahXw3HkDwdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
+  "projectFilePath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ignacio\\.nuget\\packages\\anglesharp\\1.0.7\\anglesharp.1.0.7.nupkg.sha512",
     "C:\\Users\\Ignacio\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",

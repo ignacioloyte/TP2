@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
+using System.ComponentModel;
 
 namespace CapaNegocio
 {
@@ -17,6 +18,19 @@ namespace CapaNegocio
         public List<Usuario> Listar()
         {
             return objcd_usuario.Listar();
+        }
+
+        private CD_Usuario cdUsuario;
+
+        public CN_Usuario(CD_Usuario cdUsuario)
+        {
+            this.cdUsuario = cdUsuario;
+        }
+
+        public CN_Usuario( )
+        {
+           
+            
         }
 
         public int Registrar(Usuario obj, out string Mensaje)
@@ -113,6 +127,49 @@ namespace CapaNegocio
                 return objcd_usuario.Eliminar(obj, out Mensaje);
             }
         }
+       
+
+        public bool IntentarInicioSesion(string nombreUsuario, string contraseña)
+        {
+            var resultado = objcd_usuario.VerificarCredenciales(nombreUsuario, contraseña);
+
+            switch (resultado)
+            {
+                case CD_Usuario.ResultadoVerificacion.CredencialesCorrectas:
+                    // Lógica adicional...
+                    return true;
+
+                case CD_Usuario.ResultadoVerificacion.UsuarioNoExiste:
+                    // Lógica para usuario no existente...
+                    return false;
+
+                case CD_Usuario.ResultadoVerificacion.ContraseñaIncorrecta:
+                    // Lógica para contraseña incorrecta...
+                    IncrementarIntentosFallidos(nombreUsuario);
+                    return false;
+
+                case CD_Usuario.ResultadoVerificacion.UsuarioBloqueado:
+                    // Lógica para contraseña incorrecta...
+                
+                    return false;
+
+                default:
+                    // Lógica para otros casos...
+                    return false;
+            }
+        }
+
+        private void IncrementarIntentosFallidos(string nombreUsuario)
+    {
+        // Obtener el ID del usuario basado en su nombre de usuario.
+        int usuarioId = objcd_usuario.ObtenerIdUsuario(nombreUsuario);
+        if (usuarioId > 0)
+        {
+            objcd_usuario.IncrementarIntentosFallidos(usuarioId);
+        }
+    }
+     
+
     }
 }
 

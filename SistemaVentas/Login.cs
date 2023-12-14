@@ -22,9 +22,14 @@ namespace CapaPresentacion
 {
     public partial class Login : Form
     {
+        private CN_Usuario servicioUsuario;
+
+    
+
         public Login()
         {
             InitializeComponent();
+            servicioUsuario = new CN_Usuario();
         }
 
         public void CargarIdioma()
@@ -63,41 +68,49 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-        
+            string nombreUsuario = txtUsuario.Text;
+            string contraseña = txtClave.Text;
 
+            bool exito = servicioUsuario.IntentarInicioSesion(nombreUsuario, contraseña);
 
-
-            List<Usuario> TEST = new CN_Usuario().Listar();
-            /* Llamamos el metodo listar. Utilizamos expresiones landas para poder retornar 
-             * la busqueda de un usuario en nuestra lista
-            */
-
-
-            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.NUsuario == txtUsuario.Text &&
-                   Encriptado.ValidatePassword(txtClave.Text, u.Clave) == true).FirstOrDefault();
-            /* Aca realizamos el check para validar si existe el usuario, si existe en la bd sigue,
-             * de lo contrario lanza un mensaje
-             * */
-            if (ousuario != null)
+            if (exito)
             {
+                Usuario ousuario = new CN_Usuario().Listar().Where(u => u.NUsuario == txtUsuario.Text &&
+                    Encriptado.ValidatePassword(txtClave.Text, u.Clave) == true).FirstOrDefault();
+                /* Aca realizamos el check para validar si existe el usuario, si existe en la bd sigue,
+                 * de lo contrario lanza un mensaje
+                 * */
+                if (ousuario != null)
+                {
 
-                // Le pasamos el usuario que usamos en la consulta de la linea 35
-                Inicio form = new Inicio(ousuario);
+                    // Le pasamos el usuario que usamos en la consulta de la linea 35
+                    Inicio form = new Inicio(ousuario);
 
 
 
 
-                // Registro Login OK en Bitacora
-                CN_Log Log = new CN_Log();
-                Log.LogAction(Convert.ToString(ousuario.IdUsuario), "Login", "Autentificado correctamente");
+                    // Registro Login OK en Bitacora
+                    CN_Log Log = new CN_Log();
+                    Log.LogAction(Convert.ToString(ousuario.IdUsuario), "Login", "Autentificado correctamente");
 
 
-                form.Show();
-                this.Hide();
+                    form.Show();
+                    this.Hide();
 
-                form.FormClosing += form_closing;
+                    form.FormClosing += form_closing;
+                }
+
+                else
+                {
+                    MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    // Registro Login Fallido en Bitacora
+                    CN_Log Log = new CN_Log();
+                    Log.LogAction(txtUsuario.Text, "Login Fallido", "No se ha podido autentificar");
+
+
+                }
             }
-
             else
             {
                 MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -108,6 +121,50 @@ namespace CapaPresentacion
 
 
             }
+
+
+
+            //List<Usuario> TEST = new CN_Usuario().Listar();
+            ///* Llamamos el metodo listar. Utilizamos expresiones landas para poder retornar 
+            // * la busqueda de un usuario en nuestra lista
+            //*/
+
+
+            //Usuario ousuario = new CN_Usuario().Listar().Where(u => u.NUsuario == txtUsuario.Text 
+            //       ).FirstOrDefault();
+            ///* Aca realizamos el check para validar si existe el usuario, si existe en la bd sigue,
+            // * de lo contrario lanza un mensaje
+            // * */
+            //if (ousuario != null)
+            //{
+
+            //    // Le pasamos el usuario que usamos en la consulta de la linea 35
+            //    Inicio form = new Inicio(ousuario);
+
+
+
+
+            //    // Registro Login OK en Bitacora
+            //    CN_Log Log = new CN_Log();
+            //    Log.LogAction(Convert.ToString(ousuario.IdUsuario), "Login", "Autentificado correctamente");
+
+
+            //    form.Show();
+            //    this.Hide();
+
+            //    form.FormClosing += form_closing;
+            //}
+
+            //else
+            //{
+            //    MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            //    // Registro Login Fallido en Bitacora
+            //    CN_Log Log = new CN_Log();
+            //    Log.LogAction(txtUsuario.Text, "Login Fallido", "No se ha podido autentificar");
+
+
+            //}
         }
         //Evento para que al cerrarse el form de inicio se abra el login
         private void form_closing(object sender, FormClosingEventArgs e)

@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj": {}
+    "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
+    "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj",
+        "projectUniqueName": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj",
         "projectName": "CapaDatos",
-        "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj",
+        "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
               }
             }
           }
@@ -23,11 +23,11 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
+    "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj",
+        "projectUniqueName": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj",
         "projectName": "CapaEntidad",
-        "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj",
+        "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -38,19 +38,19 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
+    "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj",
+        "projectUniqueName": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj",
         "projectName": "CapaNegocio",
-        "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj",
+        "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj"
               },
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
               }
             }
           }
@@ -60,14 +60,14 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj": {
+    "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
+        "projectUniqueName": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
         "projectName": "SistemaVentasFerreNeyte",
-        "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
+        "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
         "packagesPath": "C:\\Users\\Ignacio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\obj\\",
+        "outputPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\vs\\2\\NuGetPackages"
@@ -88,14 +88,14 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj"
               },
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
               },
-              "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
-                "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj"
+              "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
+                "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj"
               }
             }
           }

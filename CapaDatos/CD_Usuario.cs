@@ -15,6 +15,8 @@ namespace CapaDatos
 {
     public class CD_Usuario
     {
+
+
         public List<Usuario> Listar()
         {
             List<Usuario> lista = new List<Usuario>();
@@ -205,6 +207,137 @@ namespace CapaDatos
             return Respuesta;
 
 
+        }
+
+        public void IncrementarIntentosFallidos(int usuarioId)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                conexion.Open();
+                string consultaIncremento = "UPDATE Usuario SET intentos = intentos + 1 WHERE IDUsuario = @usuarioId";
+
+                using (SqlCommand comando = new SqlCommand(consultaIncremento, conexion))
+                {
+                    comando.Parameters.Add(new SqlParameter("@usuarioId", SqlDbType.Int));
+                    comando.Parameters["@usuarioId"].Value = usuarioId;
+
+                    comando.ExecuteNonQuery();
+                }
+
+                // Comprobar si el número de intentos ha alcanzado 3 y actualizar el estado
+                string consultaVerificacion = "SELECT intentos FROM Usuario WHERE IdUsuario = @usuarioId";
+                using (SqlCommand comandoVerificacion = new SqlCommand(consultaVerificacion, conexion))
+                {
+                    comandoVerificacion.Parameters.Add(new SqlParameter("@usuarioId", SqlDbType.Int));
+                    comandoVerificacion.Parameters["@usuarioId"].Value = usuarioId;
+
+                    int intentos = (int)comandoVerificacion.ExecuteScalar();
+                    if (intentos >= 3)
+                    {
+                        string consultaEstado = "UPDATE Usuario SET estado = 0 WHERE IdUsuario = @usuarioId";
+                        using (SqlCommand comandoEstado = new SqlCommand(consultaEstado, conexion))
+                        {
+                            comandoEstado.Parameters.Add(new SqlParameter("@usuarioId", SqlDbType.Int));
+                            comandoEstado.Parameters["@usuarioId"].Value = usuarioId;
+
+                            comandoEstado.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+
+        // Enum para representar el resultado de la verificación de credenciales
+        public enum ResultadoVerificacion
+        {
+            UsuarioNoExiste,
+            ContraseñaIncorrecta,
+            CredencialesCorrectas,
+            UsuarioBloqueado
+        }
+
+        public ResultadoVerificacion VerificarCredenciales(string nusuario, string clave)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                conexion.Open();
+                // Modificar la consulta para incluir también el estado del usuario
+                string consulta = "SELECT clave, estado FROM Usuario WHERE Nusuario = @nusuario";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.Add(new SqlParameter("@nusuario", SqlDbType.NVarChar));
+                    comando.Parameters["@nusuario"].Value = nusuario;
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            return ResultadoVerificacion.UsuarioNoExiste;
+                        }
+                        else
+                        {
+                            reader.Read();
+                            int estado = Convert.ToInt32(reader["estado"]);
+                            if (estado == 0)
+                            {
+                                return ResultadoVerificacion.UsuarioBloqueado;
+                            }
+
+                            string claveEncontrada = reader["clave"].ToString();
+                            if (Encriptado.ValidatePassword(clave, claveEncontrada))
+                            {
+                                return ResultadoVerificacion.CredencialesCorrectas;
+                            }
+                            else
+                            {
+                                return ResultadoVerificacion.ContraseñaIncorrecta;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public int ObtenerIdUsuario(string nombreUsuario)
+        {
+            int usuarioId = -1; // Valor predeterminado que indica que no se encontró el usuario
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                conexion.Open();
+                string consulta = "SELECT IdUsuario FROM Usuario WHERE Nusuario = @nombreUsuario";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+
+                    object resultado = comando.ExecuteScalar();
+                    if (resultado != null)
+                    {
+                        usuarioId = Convert.ToInt32(resultado);
+                    }
+                }
+            }
+
+            return usuarioId;
+        }
+    
+
+    public void ReiniciarIntentosFallidos(int usuarioId)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                conexion.Open();
+                string consulta = "UPDATE Usuario SET intento = 0 WHERE Id = @usuarioId";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.Add(new SqlParameter("@usuarioId", SqlDbType.Int));
+                    comando.Parameters["@usuarioId"].Value = usuarioId;
+
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

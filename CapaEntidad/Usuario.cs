@@ -20,5 +20,10 @@ namespace CapaEntidad
         public Rol oRol { get; set; }
         public bool Estado {  get; set; }
         public string rol { get; set; }
+        public int IntentosFallidos { get; set; }
+        public int Id { get; set; }
+        public int Intento { get; set; }
+
+
     }
 }

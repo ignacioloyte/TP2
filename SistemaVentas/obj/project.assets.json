@@ -6111,9 +6111,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
       "projectName": "SistemaVentasFerreNeyte",
-      "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
+      "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\SistemaVentas\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\Ignacio\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\SistemaVentas\\obj\\",
       "projectStyle": "PackageReference",
@@ -6136,14 +6136,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
-              "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaDatos\\CapaDatos.csproj"
+            "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj": {
+              "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaDatos\\CapaDatos.csproj"
             },
-            "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
-              "projectPath": "C:\\Users\\Ignacio\\Source\\Repos\\TP2\\CapaNegocio\\CapaNegocio.csproj"
+            "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj": {
+              "projectPath": "C:\\Users\\Ignacio\\source\\repos\\TP2\\CapaNegocio\\CapaNegocio.csproj"
             }
           }
         }
